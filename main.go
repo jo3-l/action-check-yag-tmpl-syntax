@@ -25,18 +25,18 @@ func checkFile(path string) error {
 }
 
 func registerProblemMatcher() {
-	dirname, err := os.UserHomeDir()
+	homedir, err := os.UserHomeDir()
 	if err != nil {
 		log.Fatal("error getting user home dir: ", err)
 	}
 
-	in, err := os.Open("/check_yag_tmpl_syntax.json")
+	in, err := os.Open("check_yag_tmpl_syntax.json")
 	if err != nil {
 		log.Fatal("error reading syntax matcher file: ", err)
 	}
 	defer in.Close()
 
-	dst := path.Join(dirname, "check_yag_tmpl_syntax.json")
+	dst := path.Join(homedir, "check_yag_tmpl_syntax.json")
 	out, err := os.Create(dst)
 	if err != nil {
 		log.Fatal("error creating file under user home dir: ", err)
