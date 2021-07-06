@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -23,19 +22,7 @@ func checkFile(path string) error {
 	return err
 }
 
-func registerProblemMatcher() {
-	// TODO: Do this properly using Go standard library
-	cpCmd := exec.Command("/bin/sh", "-c", "cp", "/check_yag_tmpl_syntax.json", os.ExpandEnv("$HOME/"))
-	err := cpCmd.Run()
-	if err != nil {
-		log.Fatal("error copying problem matcher to user home dir: ", err)
-	}
-	fmt.Println(os.ExpandEnv("::add-matcher::$HOME/check_yag_tmpl_syntax.json"))
-}
-
 func main() {
-	registerProblemMatcher()
-
 	matches, err := filepath.Glob(os.Getenv("INPUT_INCLUDE"))
 	if err != nil {
 		log.Fatal("invalid glob pattern: ", err)

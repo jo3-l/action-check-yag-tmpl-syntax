@@ -18,4 +18,4 @@ FROM alpine:latest
 
 COPY --from=builder /app/app /app
 
-ENTRYPOINT ["/app"]
+ENTRYPOINT ["/entrypoint.sh"]
