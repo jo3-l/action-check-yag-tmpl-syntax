@@ -25,7 +25,7 @@ func checkFile(path string) error {
 
 func registerProblemMatcher() {
 	// TODO: Do this properly using Go standard library
-	cpCmd := exec.Command("cp", "/check_yag_tmpl_syntax.json", os.ExpandEnv("$HOME/"))
+	cpCmd := exec.Command("/bin/sh", "-c", "cp", "/check_yag_tmpl_syntax.json", os.ExpandEnv("$HOME/"))
 	err := cpCmd.Run()
 	if err != nil {
 		log.Fatal("error copying problem matcher to user home dir: ", err)
