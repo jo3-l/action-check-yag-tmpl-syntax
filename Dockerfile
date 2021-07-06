@@ -16,6 +16,7 @@ RUN CGO_ENABLED=0 go build -ldflags="-w -s" -v -o app .
 
 FROM alpine:latest
 
+COPY --from=builder /app/check_yag_tmpl_syntax.json /check_yag_tmpl_syntax.json
 COPY --from=builder /app/app /app
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/app"]

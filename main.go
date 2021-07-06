@@ -4,8 +4,10 @@ package main
 
 import (
 	"fmt"
+	"io"
 	"log"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 
@@ -22,7 +24,35 @@ func checkFile(path string) error {
 	return err
 }
 
+func registerProblemMatcher() {
+	homedir, err := os.UserHomeDir()
+	if err != nil {
+		log.Fatal("error getting user home dir: ", err)
+	}
+
+	in, err := os.Open("check_yag_tmpl_syntax.json")
+	if err != nil {
+		log.Fatal("error reading syntax matcher file: ", err)
+	}
+	defer in.Close()
+
+	dst := path.Join(homedir, "check_yag_tmpl_syntax.json")
+	out, err := os.Create(dst)
+	if err != nil {
+		log.Fatal("error creating file under user home dir: ", err)
+	}
+	defer out.Close()
+
+	_, err = io.Copy(out, in)
+	if err != nil {
+		log.Fatal("error copying problem matcher to user home dir: ", err)
+	}
+	fmt.Println("::add-matcher::" + dst)
+}
+
 func main() {
+	registerProblemMatcher()
+
 	matches, err := filepath.Glob(os.Getenv("INPUT_INCLUDE"))
 	if err != nil {
 		log.Fatal("invalid glob pattern: ", err)
