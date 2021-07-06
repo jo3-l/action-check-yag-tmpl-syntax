@@ -1,0 +1,13 @@
+name: Check YAGPDB template syntax
+description: Make sure YAGPDB template files have proper syntax
+author: jo3-l
+inputs:
+  include:
+    description: A glob for files to run the syntax checker on. The glob syntax is that of the Go standard library function filepath.Match.
+    required: true
+outputs:
+  output:
+    description: Output from the syntax checker
+runs:
+  using: docker
+  image: Dockerfile

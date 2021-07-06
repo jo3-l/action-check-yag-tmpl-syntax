@@ -1,0 +1,15 @@
+{
+  "problemMatcher": [
+    {
+      "owner": "check-yag-tmpl-syntax",
+      "pattern": [
+        {
+          "regexp": "^(.+?): template: (?:.*?):(\\d+): (.+)$",
+          "file": 1,
+          "line": 2,
+          "message": 3
+        }
+      ]
+    }
+  ]
+}
