@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Check syntax
     steps:
-      - name: Checkout
-        uses: actions/checkout @v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Check syntax
         uses: ./
