@@ -4,10 +4,9 @@ package main
 
 import (
 	"fmt"
-	"io"
 	"log"
 	"os"
-	"path"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -25,29 +24,13 @@ func checkFile(path string) error {
 }
 
 func registerProblemMatcher() {
-	homedir, err := os.UserHomeDir()
-	if err != nil {
-		log.Fatal("error getting user home dir: ", err)
-	}
-
-	in, err := os.Open("check_yag_tmpl_syntax.json")
-	if err != nil {
-		log.Fatal("error reading syntax matcher file: ", err)
-	}
-	defer in.Close()
-
-	dst := path.Join(homedir, "check_yag_tmpl_syntax.json")
-	out, err := os.Create(dst)
-	if err != nil {
-		log.Fatal("error creating file under user home dir: ", err)
-	}
-	defer out.Close()
-
-	_, err = io.Copy(out, in)
+	// TODO: Do this properly using Go standard library
+	cpCmd := exec.Command("cp", "/check_yag_tmpl_syntax.json", os.ExpandEnv("$HOME/"))
+	err := cpCmd.Run()
 	if err != nil {
 		log.Fatal("error copying problem matcher to user home dir: ", err)
 	}
-	fmt.Println("::add-matcher::" + dst)
+	fmt.Println(os.ExpandEnv("::add-matcher::$HOME/check_yag_tmpl_syntax.json"))
 }
 
 func main() {
