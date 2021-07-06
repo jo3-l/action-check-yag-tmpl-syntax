@@ -47,15 +47,36 @@ var funcs = template.FuncMap{
 `))
 
 func main() {
-	content, err := os.ReadFile("./funcs.json")
+	funcs, err := os.ReadFile("./funcs.json")
 	if err != nil {
-		log.Fatal("error reading file:", err)
+		log.Fatal("error reading funcs file: ", err)
 	}
 
 	var funcData []*FuncData
-	err = json.Unmarshal(content, &funcData)
+	err = json.Unmarshal(funcs, &funcData)
 	if err != nil {
-		log.Fatal("failed unmarshalling json: ", err)
+		log.Fatal("failed unmarshalling json for funcs: ", err)
+	}
+
+	funcNames := make(map[string]struct{})
+	for _, data := range funcData {
+		funcNames[data.Name] = struct{}{}
+	}
+
+	builtins, err := os.ReadFile("./builtin_funcs.json")
+	if err != nil {
+		log.Fatal("error reading builtin funcs file: ", err)
+	}
+	var builtinData []*FuncData
+	err = json.Unmarshal(builtins, &builtinData)
+	if err != nil {
+		log.Fatal("failed unmarshalling json for builtin funcs: ", err)
+	}
+
+	for _, data := range builtinData {
+		if _, ok := funcNames[data.Name]; !ok {
+			funcData = append(funcData, data)
+		}
 	}
 
 	var buf bytes.Buffer
