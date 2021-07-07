@@ -21,7 +21,7 @@ Output from the syntax checker. Each line will contain an error, formatted like 
 ## Example usage
 
 ```yml
-uses: jo3-l/action-check-yag-tmpl-syntax@v1
+uses: jo3-l/action-check-yag-tmpl-syntax@v1.0.1
 with:
   include: "**/*.go.tmpl"
 ```
