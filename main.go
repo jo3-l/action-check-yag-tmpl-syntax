@@ -30,7 +30,7 @@ func registerProblemMatcher() {
 		log.Fatal("error getting user home dir: ", err)
 	}
 
-	in, err := os.Open("check_yag_tmpl_syntax.json")
+	in, err := os.Open("/check_yag_tmpl_syntax.json")
 	if err != nil {
 		log.Fatal("error reading syntax matcher file: ", err)
 	}
