@@ -1,0 +1,16 @@
+on:
+  push:
+
+jobs:
+  check-syntax:
+    runs-on: ubuntu-latest
+    name: Check syntax
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Check syntax
+        uses: ./
+        id: check-syntax
+        with:
+          include: "**/*.go.tmpl"
