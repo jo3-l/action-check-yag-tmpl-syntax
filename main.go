@@ -5,11 +5,13 @@ package main
 import (
 	"fmt"
 	"io"
+	"io/fs"
 	"log"
 	"os"
 	"path"
-	"path/filepath"
 	"strings"
+
+	"github.com/bmatcuk/doublestar/v4"
 
 	"github.com/jonas747/template"
 )
@@ -53,21 +55,21 @@ func registerProblemMatcher() {
 func main() {
 	registerProblemMatcher()
 
-	matches, err := filepath.Glob(os.Getenv("INPUT_INCLUDE"))
-	if err != nil {
-		log.Fatal("invalid glob pattern: ", err)
-	}
-
 	var sb strings.Builder
-	for _, path := range matches {
-		err = checkFile(path)
+	err := doublestar.GlobWalk(os.DirFS("."), os.Getenv("INPUT_INCLUDE"), func(path string, d fs.DirEntry) error {
+		err := checkFile(path)
 		if err != nil {
-			fmtErr := fmt.Sprintf("%s: %s", path, err)
+			formatted := fmt.Sprintf("%s: %s", path, err)
 			if sb.Len() > 0 {
 				sb.WriteByte('\n')
 			}
-			sb.WriteString(fmtErr)
+			sb.WriteString(formatted)
 		}
+
+		return nil
+	})
+	if err != nil {
+		log.Fatal("invalid glob pattern: ", err)
 	}
 
 	out := sb.String()

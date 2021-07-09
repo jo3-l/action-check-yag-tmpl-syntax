@@ -6,7 +6,7 @@
 
 ### `include`
 
-**Required:** A glob for files to run the syntax checker on. The glob syntax is that of the Go standard library function [filepath.Match](https://golang.org/pkg/path/filepath/#Match).
+**Required:** A glob for files to run the syntax checker on. The glob syntax is described by the documentation for the [`Match`](https://pkg.go.dev/github.com/bmatcuk/doublestar/v4#Match) function from the Go library [doublestar](https://github.com/bmatcuk/doublestar).
 
 ## Outputs
 
@@ -21,7 +21,7 @@ Output from the syntax checker. Each line will contain an error, formatted like 
 ## Example usage
 
 ```yml
-uses: jo3-l/action-check-yag-tmpl-syntax@v1.0.1
+uses: jo3-l/action-check-yag-tmpl-syntax@v2
 with:
   include: "**/*.go.tmpl"
 ```

@@ -3,7 +3,7 @@ description: Make sure YAGPDB template files have proper syntax
 author: jo3-l
 inputs:
   include:
-    description: A glob for files to run the syntax checker on. The glob syntax is that of the Go standard library function filepath.Match.
+    description: A glob for files to run the syntax checker on. The glob syntax is described by the documentation for the Match function provided by the Go library bmatcuk/doublestar.
     required: true
 outputs:
   output:
