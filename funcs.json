@@ -1,137 +1,812 @@
 [
-  { "name": "split", "num_in": 2, "variadic": false },
-  { "name": "hasPrefix", "num_in": 2, "variadic": false },
-  { "name": "mod", "num_in": 1, "variadic": true },
-  { "name": "toFloat", "num_in": 1, "variadic": false },
-  { "name": "hasSuffix", "num_in": 2, "variadic": false },
-  { "name": "toString", "num_in": 1, "variadic": false },
-  { "name": "shuffle", "num_in": 1, "variadic": false },
-  { "name": "complexMessageEdit", "num_in": 1, "variadic": true },
-  { "name": "round", "num_in": 1, "variadic": true },
-  { "name": "structToSdict", "num_in": 1, "variadic": false },
-  { "name": "json", "num_in": 1, "variadic": false },
-  { "name": "humanizeTimeSinceDays", "num_in": 1, "variadic": false },
-  { "name": "str", "num_in": 1, "variadic": false },
-  { "name": "toRune", "num_in": 1, "variadic": false },
-  { "name": "title", "num_in": 1, "variadic": false },
-  { "name": "formatTime", "num_in": 2, "variadic": true },
-  { "name": "roleAbove", "num_in": 2, "variadic": false },
-  { "name": "joinStr", "num_in": 2, "variadic": true },
-  { "name": "humanizeThousands", "num_in": 1, "variadic": false },
-  { "name": "cembed", "num_in": 1, "variadic": true },
-  { "name": "roundCeil", "num_in": 1, "variadic": true },
-  { "name": "noun", "num_in": 0, "variadic": false },
-  { "name": "humanizeDurationMinutes", "num_in": 1, "variadic": false },
-  { "name": "seq", "num_in": 2, "variadic": false },
-  { "name": "currentTime", "num_in": 0, "variadic": false },
-  { "name": "toByte", "num_in": 1, "variadic": false },
-  { "name": "dict", "num_in": 1, "variadic": true },
-  { "name": "adjective", "num_in": 0, "variadic": false },
-  { "name": "inFold", "num_in": 2, "variadic": false },
-  { "name": "newDate", "num_in": 7, "variadic": true },
-  { "name": "slice", "num_in": 2, "variadic": true },
-  { "name": "log", "num_in": 1, "variadic": true },
-  { "name": "roundFloor", "num_in": 1, "variadic": true },
-  { "name": "sdict", "num_in": 1, "variadic": true },
-  { "name": "kindOf", "num_in": 2, "variadic": true },
-  { "name": "sub", "num_in": 1, "variadic": true },
-  { "name": "mult", "num_in": 1, "variadic": true },
-  { "name": "pow", "num_in": 2, "variadic": false },
-  { "name": "complexMessage", "num_in": 1, "variadic": true },
-  { "name": "toInt64", "num_in": 1, "variadic": false },
-  { "name": "in", "num_in": 2, "variadic": false },
-  { "name": "humanizeDurationHours", "num_in": 1, "variadic": false },
-  { "name": "urlescape", "num_in": 1, "variadic": false },
-  { "name": "fdiv", "num_in": 1, "variadic": true },
-  { "name": "roundEven", "num_in": 1, "variadic": true },
-  { "name": "randInt", "num_in": 1, "variadic": true },
-  { "name": "humanizeDurationSeconds", "num_in": 1, "variadic": false },
-  { "name": "toInt", "num_in": 1, "variadic": false },
-  { "name": "lower", "num_in": 1, "variadic": false },
-  { "name": "add", "num_in": 1, "variadic": true },
-  { "name": "sqrt", "num_in": 1, "variadic": false },
-  { "name": "cslice", "num_in": 1, "variadic": true },
-  { "name": "toDuration", "num_in": 1, "variadic": false },
-  { "name": "upper", "num_in": 1, "variadic": false },
-  { "name": "div", "num_in": 1, "variadic": true },
-  { "name": "hasRoleName", "num_in": 1, "variadic": false },
-  { "name": "execAdmin", "num_in": 2, "variadic": true },
-  { "name": "sendMessageRetID", "num_in": 2, "variadic": false },
-  { "name": "editMessage", "num_in": 3, "variadic": false },
-  { "name": "addRoleID", "num_in": 1, "variadic": false },
-  { "name": "giveRoleName", "num_in": 2, "variadic": false },
-  { "name": "targetHasRoleID", "num_in": 2, "variadic": false },
-  { "name": "mentionRoleName", "num_in": 1, "variadic": false },
-  { "name": "getRole", "num_in": 1, "variadic": false },
-  { "name": "dbDelById", "num_in": 2, "variadic": false },
-  { "name": "currentUserAgeHuman", "num_in": 0, "variadic": false },
-  { "name": "execCC", "num_in": 4, "variadic": false },
-  { "name": "dbIncr", "num_in": 3, "variadic": false },
-  { "name": "sendTemplate", "num_in": 3, "variadic": true },
-  { "name": "sendMessageNoEscape", "num_in": 2, "variadic": false },
-  { "name": "hasRoleID", "num_in": 1, "variadic": false },
-  { "name": "deleteResponse", "num_in": 1, "variadic": true },
-  { "name": "currentUserCreated", "num_in": 0, "variadic": false },
-  { "name": "dbGet", "num_in": 2, "variadic": false },
-  { "name": "addRoleName", "num_in": 1, "variadic": false },
-  { "name": "cancelScheduledUniqueCC", "num_in": 2, "variadic": false },
-  { "name": "dbDel", "num_in": 2, "variadic": false },
-  { "name": "editMessageNoEscape", "num_in": 3, "variadic": false },
-  { "name": "mentionHere", "num_in": 0, "variadic": false },
-  { "name": "onlineCount", "num_in": 0, "variadic": false },
-  { "name": "pastNicknames", "num_in": 2, "variadic": false },
-  { "name": "scheduleUniqueCC", "num_in": 5, "variadic": false },
-  { "name": "getChannel", "num_in": 1, "variadic": false },
-  { "name": "addMessageReactions", "num_in": 1, "variadic": true },
-  { "name": "parseArgs", "num_in": 3, "variadic": true },
-  { "name": "dbSetExpire", "num_in": 4, "variadic": false },
-  { "name": "dbCount", "num_in": 1, "variadic": true },
-  { "name": "dbSet", "num_in": 3, "variadic": false },
-  { "name": "createTicket", "num_in": 2, "variadic": false },
-  { "name": "mentionEveryone", "num_in": 0, "variadic": false },
-  { "name": "deleteMessage", "num_in": 3, "variadic": true },
-  { "name": "getMessage", "num_in": 2, "variadic": false },
-  { "name": "reFind", "num_in": 2, "variadic": false },
-  { "name": "reSplit", "num_in": 3, "variadic": true },
-  { "name": "sendMessage", "num_in": 2, "variadic": false },
-  { "name": "removeRoleName", "num_in": 2, "variadic": true },
-  { "name": "getThread", "num_in": 1, "variadic": false },
-  { "name": "reReplace", "num_in": 3, "variadic": false },
-  { "name": "dbDelMultiple", "num_in": 3, "variadic": false },
-  { "name": "reFindAllSubmatches", "num_in": 3, "variadic": true },
-  { "name": "editChannelName", "num_in": 2, "variadic": false },
-  { "name": "carg", "num_in": 3, "variadic": true },
-  { "name": "dbRank", "num_in": 3, "variadic": false },
-  { "name": "giveRoleID", "num_in": 2, "variadic": false },
-  { "name": "takeRoleName", "num_in": 3, "variadic": true },
-  { "name": "deleteMessageReaction", "num_in": 1, "variadic": true },
-  { "name": "deleteAllMessageReactions", "num_in": 1, "variadic": true },
-  { "name": "exec", "num_in": 2, "variadic": true },
-  { "name": "removeRoleID", "num_in": 2, "variadic": true },
-  { "name": "targetHasRoleName", "num_in": 2, "variadic": false },
-  { "name": "reFindAll", "num_in": 3, "variadic": true },
-  { "name": "editChannelTopic", "num_in": 2, "variadic": false },
-  { "name": "onlineCountBots", "num_in": 0, "variadic": false },
-  { "name": "sendTemplateDM", "num_in": 2, "variadic": true },
-  { "name": "sendMessageNoEscapeRetID", "num_in": 2, "variadic": false },
-  { "name": "takeRoleID", "num_in": 3, "variadic": true },
-  { "name": "addReactions", "num_in": 1, "variadic": true },
-  { "name": "currentUserAgeMinutes", "num_in": 0, "variadic": false },
-  { "name": "dbTopEntries", "num_in": 3, "variadic": false },
-  { "name": "sendDM", "num_in": 1, "variadic": true },
-  { "name": "getChannelOrThread", "num_in": 1, "variadic": false },
-  { "name": "sort", "num_in": 2, "variadic": true },
-  { "name": "userArg", "num_in": 1, "variadic": false },
-  { "name": "dbGetPattern", "num_in": 4, "variadic": false },
-  { "name": "dbGetPatternReverse", "num_in": 4, "variadic": false },
-  { "name": "mentionRoleID", "num_in": 1, "variadic": false },
-  { "name": "setRoles", "num_in": 2, "variadic": false },
-  { "name": "addResponseReactions", "num_in": 1, "variadic": true },
-  { "name": "sleep", "num_in": 1, "variadic": false },
-  { "name": "editNickname", "num_in": 1, "variadic": false },
-  { "name": "deleteTrigger", "num_in": 1, "variadic": true },
-  { "name": "getMember", "num_in": 1, "variadic": false },
-  { "name": "pastUsernames", "num_in": 2, "variadic": false },
-  { "name": "dbDelByID", "num_in": 2, "variadic": false },
-  { "name": "dbBottomEntries", "num_in": 3, "variadic": false }
+  {
+    "name": "bitwiseXor",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "dict",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "formatTime",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "toInt",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "toFloat",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "joinStr",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "lower",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "roundEven",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "println",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "cbrt",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "randInt",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "toByte",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "div",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "sub",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "bitwiseRightShift",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "cslice",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "fdiv",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "sqrt",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "cembed",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "noun",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "newDate",
+    "num_in": 7,
+    "variadic": true
+  },
+  {
+    "name": "complexMessageEdit",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "kindOf",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "currentTime",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "str",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "toDuration",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "log",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "min",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "mod",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "humanizeDurationMinutes",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "toInt64",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "print",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "printf",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "pow",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "roundFloor",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "toString",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "slice",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "snowflakeToTime",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "inFold",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "humanizeDurationSeconds",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "toRune",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "split",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "title",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "urlescape",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "shuffle",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "mathConst",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "mult",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "roundCeil",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "adjective",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "urlunescape",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "add",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "max",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "in",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "seq",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "reQuoteMeta",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "round",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "structToSdict",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "roleAbove",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "humanizeTimeSinceDays",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "json",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "verb",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "weekNumber",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "trimSpace",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "bitwiseOr",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "bitwiseNot",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "bitwiseAndNot",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "loadLocation",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "upper",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "bitwiseAnd",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "complexMessage",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "humanizeDurationHours",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "hasPrefix",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "hasSuffix",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "bitwiseLeftShift",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "humanizeThousands",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "sdict",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "removeRoleName",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "deleteTrigger",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "addMessageReactions",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "editNickname",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "editMessage",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "unpinMessage",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "addRoleID",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "onlineCountBots",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "pastNicknames",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "dbDelByID",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "dbTopEntries",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "getMessage",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "sleep",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "editChannelName",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "deleteMessageReaction",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "getThread",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "reFind",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "parseArgs",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "dbGetPattern",
+    "num_in": 4,
+    "variadic": false
+  },
+  {
+    "name": "sendDM",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "sendTemplate",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "mentionHere",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "dbRank",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "giveRoleName",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "getChannelOrThread",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "giveRoleID",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "getRole",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "onlineCount",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "removeRoleID",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "reFindAllSubmatches",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "pastUsernames",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "carg",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "dbDel",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "mentionRoleName",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "targetHasRoleID",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "deleteAllMessageReactions",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "sort",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "userArg",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "execCC",
+    "num_in": 4,
+    "variadic": false
+  },
+  {
+    "name": "dbDelById",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "targetHasPermissions",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "deleteResponse",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "getChannel",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "deleteMessage",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "addReactions",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "dbIncr",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "createTicket",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "editMessageNoEscape",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "pinMessage",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "hasPermissions",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "takeRoleName",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "getTargetPermissionsIn",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "currentUserAgeHuman",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "editChannelTopic",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "scheduleUniqueCC",
+    "num_in": 5,
+    "variadic": false
+  },
+  {
+    "name": "sendMessageNoEscape",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "mentionRoleID",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "setRoles",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "reFindAll",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "reSplit",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "dbGetPatternReverse",
+    "num_in": 4,
+    "variadic": false
+  },
+  {
+    "name": "dbBottomEntries",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "mentionEveryone",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "targetHasRoleName",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "getMember",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "addResponseReactions",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "dbSetExpire",
+    "num_in": 4,
+    "variadic": false
+  },
+  {
+    "name": "dbGet",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "sendMessageRetID",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "hasRoleName",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "takeRoleID",
+    "num_in": 3,
+    "variadic": true
+  },
+  {
+    "name": "sendMessage",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "sendMessageNoEscapeRetID",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "dbSet",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "cancelScheduledUniqueCC",
+    "num_in": 2,
+    "variadic": false
+  },
+  {
+    "name": "addRoleName",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "currentUserCreated",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "currentUserAgeMinutes",
+    "num_in": 0,
+    "variadic": false
+  },
+  {
+    "name": "getPinCount",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "reReplace",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "dbCount",
+    "num_in": 1,
+    "variadic": true
+  },
+  {
+    "name": "execAdmin",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "dbDelMultiple",
+    "num_in": 3,
+    "variadic": false
+  },
+  {
+    "name": "sendTemplateDM",
+    "num_in": 2,
+    "variadic": true
+  },
+  {
+    "name": "hasRoleID",
+    "num_in": 1,
+    "variadic": false
+  },
+  {
+    "name": "exec",
+    "num_in": 2,
+    "variadic": true
+  }
 ]
