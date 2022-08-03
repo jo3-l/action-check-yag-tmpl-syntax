@@ -24,9 +24,10 @@ jobs:
       - name: Create pull request
         uses: peter-evans/create-pull-request@v4
         with:
+          author: 'github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>'
           commit-message: 'chore: regenerate template functions'
           title: 'chore: regenerate template functions'
-          body: >
+          body: |
             🤖 *bleep bloop*, this is an automated PR to regenerate the list of template functions.
 
             It may be prudent to release a new version after merging this PR:
