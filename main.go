@@ -5,7 +5,6 @@ package main
 import (
 	"fmt"
 	"io"
-	"io/fs"
 	"log"
 	"os"
 	"path"
@@ -16,73 +15,81 @@ import (
 	"github.com/jonas747/template"
 )
 
-func checkFile(path string) error {
-	contents, err := os.ReadFile(path)
-	if err != nil {
-		log.Fatal("error reading file: ", err)
+// See https://github.community/t5/GitHub-Actions/set-output-Truncates-Multiline-Strings/td-p/37870.
+var replacer = strings.NewReplacer("%", "%25", "\n", "%0A", "\r", "%0D")
+
+func main() {
+	registerProblemMatcher()
+
+	failures := checkFiles(os.Getenv("INPUT_INCLUDE"))
+	var buf strings.Builder
+	for i, f := range failures {
+		if i > 0 {
+			buf.WriteByte('\n')
+		}
+		buf.WriteString(f.String())
 	}
 
-	_, err = template.New("").Funcs(funcs).Parse(string(contents))
-	return err
+	out := buf.String()
+	fmt.Println(out)
+	fmt.Println("::set-output name=output::" + replacer.Replace(out))
+	if len(failures) > 0 {
+		os.Exit(1)
+	}
 }
 
 func registerProblemMatcher() {
 	homedir, err := os.UserHomeDir()
 	if err != nil {
-		log.Fatal("error getting user home dir: ", err)
+		log.Fatalln("error getting user home dir: ", err)
 	}
 
 	in, err := os.Open("/check_yag_tmpl_syntax.json")
 	if err != nil {
-		log.Fatal("error reading syntax matcher file: ", err)
+		log.Fatalln("error reading syntax matcher file: ", err)
 	}
 	defer in.Close()
 
 	dst := path.Join(homedir, "check_yag_tmpl_syntax.json")
 	out, err := os.Create(dst)
 	if err != nil {
-		log.Fatal("error creating file under user home dir: ", err)
+		log.Fatalln("error creating file under user home dir: ", err)
 	}
 	defer out.Close()
 
 	_, err = io.Copy(out, in)
 	if err != nil {
-		log.Fatal("error copying problem matcher to user home dir: ", err)
+		log.Fatalln("error copying problem matcher to user home dir: ", err)
 	}
 	fmt.Println("::add-matcher::" + dst)
 }
 
-func main() {
-	registerProblemMatcher()
+func checkFiles(pattern string) []CheckFailure {
+	matches, err := doublestar.FilepathGlob(pattern)
+	if err != nil {
+		log.Fatalln("glob matching failed: ", err)
+	}
 
-	var sb strings.Builder
-	err := doublestar.GlobWalk(os.DirFS("."), os.Getenv("INPUT_INCLUDE"), func(path string, d fs.DirEntry) error {
-		err := checkFile(path)
+	var failures []CheckFailure
+	for _, path := range matches {
+		content, err := os.ReadFile(path)
 		if err != nil {
-			formatted := fmt.Sprintf("%s: %s", path, err)
-			if sb.Len() > 0 {
-				sb.WriteByte('\n')
-			}
-			sb.WriteString(formatted)
+			log.Fatalln("error reading file: ", err)
 		}
 
-		return nil
-	})
-	if err != nil {
-		log.Fatal("invalid glob pattern: ", err)
+		_, err = template.New("").Funcs(funcs).Parse(string(content))
+		if err != nil {
+			failures = append(failures, CheckFailure{path, err})
+		}
 	}
+	return failures
+}
 
-	out := sb.String()
-	fmt.Println(out)
+type CheckFailure struct {
+	Path string
+	Err  error
+}
 
-	// See https://github.community/t5/GitHub-Actions/set-output-Truncates-Multiline-Strings/td-p/37870
-	out = strings.ReplaceAll(out, "%", "%25")
-	out = strings.ReplaceAll(out, "\n", "%0A")
-	out = strings.ReplaceAll(out, "\r", "%0D")
-	fmt.Println("::set-output name=output::" + out)
-
-	if out == "" {
-		os.Exit(0)
-	}
-	os.Exit(1)
+func (c CheckFailure) String() string {
+	return c.Path + ": " + c.Err.Error()
 }
