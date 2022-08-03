@@ -18,7 +18,8 @@ jobs:
       - name: Tag new release
         run: |
           VERSION="${{ github.event.inputs.version }}"
-          if [[ ! ${VERSION} =~ ^v\d+.\d+.\d+$ ]]; then
+          VALID_VERSION_RE='$v[0-9]+\.[0-9]+\.[0-9]+$'
+          if [[ ! ${VERSION} =~ ${VALID_VERSION_RE} ]]; then
             echo "invalid version supplied; must be in the format vX.Y.Z"
             exit 1
           fi
