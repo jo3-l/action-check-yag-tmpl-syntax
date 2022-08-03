@@ -6,6 +6,7 @@ import (
 )
 
 var funcs = template.FuncMap{
+	"add":                       func() interface{} { return nil },
 	"addMessageReactions":       func() interface{} { return nil },
 	"addReactions":              func() interface{} { return nil },
 	"addResponseReactions":      func() interface{} { return nil },
