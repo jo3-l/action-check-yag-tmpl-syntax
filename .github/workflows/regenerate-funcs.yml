@@ -1,0 +1,38 @@
+name: Regenerate template functions
+
+on:
+  schedule:
+    - cron: '0 0 * * 6'
+
+jobs:
+  regenerate-funcs:
+    name: Regenerate template functions
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.18
+
+      - name: Run go generate
+        run: go generate
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v4
+        commit-message: 'chore: regenerate template functions'
+        title: 'chore: regenerate template functions'
+        body: >
+          🤖 *bleep bloop*, this is an automated PR to regenerate the list of template functions.
+
+          It may be prudent to release a new version after merging this PR:
+          ```
+          git tag -a vX.Y.Z -m "chore(release): vX.Y.Z"
+          git push --follow-tags
+          ```
+        branch: 'chore/regenerate-tmpl-funcs'
+        delete-branch: true
+        assignees: jo3-l
+        reviewers: jo3-l
