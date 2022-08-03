@@ -12,7 +12,7 @@ import (
 
 	"github.com/bmatcuk/doublestar/v4"
 
-	"github.com/jonas747/template"
+	"github.com/jo3-l/action-check-yag-tmpl-syntax/template"
 )
 
 // See https://github.community/t5/GitHub-Actions/set-output-Truncates-Multiline-Strings/td-p/37870.

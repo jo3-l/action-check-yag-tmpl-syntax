@@ -2,7 +2,7 @@
 package main
 
 import (
-	"github.com/jonas747/template"
+	"github.com/jo3-l/action-check-yag-tmpl-syntax/template"
 )
 
 var funcs = template.FuncMap{
