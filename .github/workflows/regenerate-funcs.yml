@@ -28,13 +28,9 @@ jobs:
           commit-message: 'chore: regenerate template functions'
           title: 'chore: regenerate template functions'
           body: |
-            🤖 *bleep bloop*, this is an automated PR to regenerate the list of template functions.
+            🤖 *beep boop*, this is an automated PR to regenerate the list of template functions.
 
-            It may be prudent to release a new version after merging this PR:
-            ```
-            git tag -a vX.Y.Z -m "chore(release): vX.Y.Z"
-            git push --follow-tags
-            ```
+            It may be prudent to tag a new version after merging this PR, which can be done from GitHub by triggering the release workflow from the Actions tab.
           branch: 'chore/regenerate-tmpl-funcs'
           delete-branch: true
           assignees: jo3-l
