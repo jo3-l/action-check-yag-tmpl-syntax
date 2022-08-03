@@ -1,0 +1,29 @@
+name: Tag new release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to release; must be in the format vX.Y.Z'
+        required: true
+
+jobs:
+  tag-new-release:
+    name: Tag new release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Tag new release
+        run: |
+          VERSION="${{ github.events.inputs.version }}"
+          if [[ ! ${VERSION} =~ ^v\d+.\d+.\d+$ ]]; then
+            echo "[tag-new-release] invalid version supplied; must be in the format vX.Y.Z"
+            exit 1
+          fi
+
+          git config --local user.name "${GITHUB_ACTOR}";
+          git config --local user.email "${GITHUB_EMAIL}";
+          git tag -a "${VERSION}" -m "chore(release): ${VERSION}";
+          git push origin "${VERSION}"
