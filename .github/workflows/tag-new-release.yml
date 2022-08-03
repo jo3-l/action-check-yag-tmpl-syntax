@@ -25,5 +25,9 @@ jobs:
 
           git config --local user.name "${GITHUB_ACTOR}";
           git config --local user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+          sed -i "s/$(git describe --tags --abbrev=0)/${VERSION}/" ./README.md
+          git commit -m "chore(release): ${VERSION}"
+
           git tag -a "${VERSION}" -m "chore(release): ${VERSION}";
-          git push origin "${VERSION}"
+          git push origin --follow-tags
