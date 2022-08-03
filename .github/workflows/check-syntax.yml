@@ -1,5 +1,5 @@
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   check-syntax:
@@ -13,4 +13,4 @@ jobs:
         uses: ./
         id: check-syntax
         with:
-          include: "**/*.go.tmpl"
+          include: '**/*.go.tmpl'
