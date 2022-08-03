@@ -1,3 +1,7 @@
+# This workflow is meant to test that the action works correctly and is expected
+# to fail. It can be run manually from the Actions tab on GitHub.
+name: Check syntax
+
 on:
   workflow_dispatch:
 
