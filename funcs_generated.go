@@ -169,6 +169,7 @@ var funcs = template.FuncMap{
 	"targetHasPermissions":      func() interface{} { return nil },
 	"targetHasRoleID":           func() interface{} { return nil },
 	"targetHasRoleName":         func() interface{} { return nil },
+	"timestampToTime":           func() interface{} { return nil },
 	"title":                     func() interface{} { return nil },
 	"toByte":                    func() interface{} { return nil },
 	"toDuration":                func() interface{} { return nil },
