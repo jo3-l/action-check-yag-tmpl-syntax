@@ -122,6 +122,7 @@ var funcs = template.FuncMap{
 	"onlineCountBots":           func() interface{} { return nil },
 	"or":                        func() interface{} { return nil },
 	"parseArgs":                 func() interface{} { return nil },
+	"parseTime":                 func() interface{} { return nil },
 	"pastNicknames":             func() interface{} { return nil },
 	"pastUsernames":             func() interface{} { return nil },
 	"pinMessage":                func() interface{} { return nil },
