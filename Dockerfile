@@ -1,7 +1,7 @@
 # Taken from https://github.com/jacobtomlinson/go-container-action/blob/master/Dockerfile
 # MIT License.
 
-FROM golang:1.18 as builder
+FROM golang:1.22 as builder
 
 WORKDIR /app
 
