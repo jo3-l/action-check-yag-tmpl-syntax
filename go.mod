@@ -1,6 +1,6 @@
 module github.com/jo3-l/action-check-yag-tmpl-syntax
 
-go 1.18
+go 1.22
 
 require (
 	github.com/bmatcuk/doublestar/v4 v4.2.0
