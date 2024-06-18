@@ -3,26 +3,23 @@ package main
 //go:generate go run gen/gen_funcs.go
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"path"
-	"strings"
 
 	"github.com/bmatcuk/doublestar/v4"
 
 	"github.com/jo3-l/action-check-yag-tmpl-syntax/template"
 )
 
-// See https://github.community/t5/GitHub-Actions/set-output-Truncates-Multiline-Strings/td-p/37870.
-var replacer = strings.NewReplacer("%", "%25", "\n", "%0A", "\r", "%0D")
-
 func main() {
 	registerProblemMatcher()
 
 	failures := checkFiles(os.Getenv("INPUT_INCLUDE"))
-	var buf strings.Builder
+	var buf bytes.Buffer
 	for i, f := range failures {
 		if i > 0 {
 			buf.WriteByte('\n')
@@ -30,9 +27,8 @@ func main() {
 		buf.WriteString(f.String())
 	}
 
-	out := buf.String()
-	fmt.Println(out)
-	fmt.Println("::set-output name=output::" + replacer.Replace(out))
+	fmt.Println(buf.String())
+	os.WriteFile(os.Getenv("GITHUB_OUTPUT"), buf.Bytes(), 0644)
 	if len(failures) > 0 {
 		os.Exit(1)
 	}
